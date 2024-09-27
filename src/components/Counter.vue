@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-    <h1>{{ displayTitle }}</h1>
+  <h1>{{ displayTitle }}</h1>
   <p :data-increment-by="incrementAmount">{{ count }}</p>
   <button @click="incrementCount">Increment Count</button>
   <h1>{{ incrementAmount }}</h1>

@@ -1,8 +1,10 @@
 <script>
 import Counter from "./components/Counter.vue";
+import BenderStatistics from "./components/BenderStatistics.vue";
 export default {
   components: {
     Counter,
+    BenderStatistics,
   },
   data() {
     return {
@@ -41,6 +43,7 @@ export default {
 
 <template>
   <Counter />
+  <BenderStatistics />
   <hr />
   <p v-if="message.length % 2 === 0">Even:{{ message.toUpperCase() }}</p>
   <p v-else>Odd:{{ message }}</p>
