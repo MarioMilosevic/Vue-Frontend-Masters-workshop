@@ -1,10 +1,10 @@
 <script>
-import Counter from "./components/Counter.vue";
 import BenderStatistics from "./components/BenderStatistics.vue";
+import UserCard from "./components/UserCard.vue";
 export default {
   components: {
-    Counter,
     BenderStatistics,
+    UserCard,
   },
   data() {
     return {
@@ -36,14 +36,51 @@ export default {
           list: [1, 2, 3],
         },
       ],
+      characterList: [
+        {
+          name: "Aang",
+          element: ["Air", "Earth", "Water", "Fire"],
+        },
+        {
+          name: "Zuko",
+          element: ["Fire"],
+        },
+        {
+          name: "Toph",
+          element: ["Earth"],
+        },
+        {
+          name: "Katakara",
+          element: ["Water"],
+        },
+      ],
+      userData: {
+        name: "Mario",
+        preferredFramework: "vue",
+        favoriteFood: "pizza",
+        favoriteNumbers: [8, 2, 19],
+      },
     };
   },
 };
 </script>
 
 <template>
-  <Counter />
-  <BenderStatistics />
+  <UserCard :user="userData"/>
+  <!-- <BenderStatistics :characters="characterList" /> -->
+
+  <!-- <h2>Characters</h2>
+  <p v-if="characterList.length === 0">There are no characters</p>
+  <ul v-else-if="characterList.length % 2 === 0">
+    <li
+      v-for="(character, index) in characterList"
+      :key="`even-character-${index}`"
+    >
+      <p>{{ character.name }}</p>
+      <button @click="favoriteCharacter(character)">Favorite</button>
+    </li>
+  </ul>
+  <p v-else>There are odd characters</p>
   <hr />
   <p v-if="message.length % 2 === 0">Even:{{ message.toUpperCase() }}</p>
   <p v-else>Odd:{{ message }}</p>
@@ -56,5 +93,5 @@ export default {
         </li>
       </ul>
     </li>
-  </ul>
+  </ul> -->
 </template>

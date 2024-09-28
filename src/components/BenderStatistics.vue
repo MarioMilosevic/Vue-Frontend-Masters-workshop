@@ -1,5 +1,11 @@
 <script>
 export default {
+  props: {
+    characters: {
+      type: Array,
+      required: true,
+    },
+  },
   computed: {
     benderStatistics() {
       const elements = ["Air", "Earth", "Fire", "Water"];
@@ -9,7 +15,7 @@ export default {
         Water: 0,
         Fire: 0,
       };
-      this.characterList.forEach((character) => {
+      this.characters.forEach((character) => {
         elements.forEach((element) => {
           if (character.element.indexOf(element) > -1) {
             statistics[element] += 1;
