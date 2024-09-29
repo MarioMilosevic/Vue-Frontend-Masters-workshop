@@ -1,12 +1,15 @@
 <script>
 import BenderStatistics from "./components/BenderStatistics.vue";
 import UserCard from "./components/UserCard.vue";
+import BaseButton from "./components/BaseButton.vue";
+
 export default {
   components: {
     BenderStatistics,
     UserCard,
+    BaseButton
   },
-  data() {
+  data() { 
     return {
       message: "Hello it works",
       listOfNumbers: [
@@ -62,11 +65,22 @@ export default {
       },
     };
   },
+  methods: {
+    changeName(){
+      console.log('lik')
+      console.log(this.userData)
+      return this.userData.name = 'Milosevic'
+    },
+    // handleCustomEvent(data) {
+    //   console.log(data)
+    // }
+  },
 };
 </script>
 
 <template>
-  <UserCard :user="userData"/>
+  <UserCard :user="userData" @change-name="changeName"/>
+  <BaseButton text="Hello" icon="Arrow"/>
   <!-- <BenderStatistics :characters="characterList" /> -->
 
   <!-- <h2>Characters</h2>
