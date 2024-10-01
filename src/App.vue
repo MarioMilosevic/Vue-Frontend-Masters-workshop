@@ -13,7 +13,7 @@ export default {
     console.log("Before create");
     console.log(this.pokedex);
   },
-  created() {
+  created() {  
     console.log("Create");
     console.log(this.pokedex);
     this.fetchPokemon()
