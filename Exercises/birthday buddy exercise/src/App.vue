@@ -14,6 +14,11 @@ export default {
     PersonList,
     HeadingTitle,
     ClearButton
+  },
+  methods: {
+    clearAll() {
+      this.peopleList = []
+    }
   }
 }
 </script>
@@ -22,7 +27,7 @@ export default {
   <div class="container">
     <HeadingTitle :list="peopleList" />
     <PersonList :list="peopleList" />
-    <ClearButton/>
+    <ClearButton :list="peopleList" @clear-all="clearAll"/>
   </div>
 </template>
 

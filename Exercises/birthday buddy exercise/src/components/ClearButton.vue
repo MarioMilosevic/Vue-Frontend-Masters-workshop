@@ -6,14 +6,12 @@ export default {
       required: true
     }
   },
-  methods: {
-    clearAll() {}
-  }
+  emits: ['clear-all']
 }
 </script>
 
 <template>
-  <button class="button">Clear All</button>
+  <button class="button" @click="$emit('clear-all')">Clear All</button>
 </template>
 
 <style scoped>
