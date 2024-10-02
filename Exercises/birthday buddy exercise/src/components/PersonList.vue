@@ -15,7 +15,10 @@ export default defineComponent({
   <ul class="list">
     <li v-for="(person, index) in list" :key="index" class="item">
       <img :src="person.image" alt="image" class="picture" />
-      <h2 class="fullName">{{ person.fullName }}</h2>
+      <div class="information_container">
+        <h2 class="fullName">{{ person.fullName }}</h2>
+        <h3 class="age">{{ person.age }} years</h3>
+      </div>
     </li>
   </ul>
 </template>
@@ -23,24 +26,31 @@ export default defineComponent({
 <style scoped>
 .list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .item {
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .picture {
-    object-fit: cover;
+  object-fit: cover;
   width: 50px;
   height: 50px;
   border-radius: 9999px;
 }
 
 .fullName {
-    font-weight: 600;
-    font-size: 1.5rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.age {
+    font-weight: 300;
+    font-size: 1rem;
 }
 </style>

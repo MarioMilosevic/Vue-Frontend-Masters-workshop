@@ -1,31 +1,33 @@
 <script lang="ts">
 import PersonList from './components/PersonList.vue'
+import HeadingTitle from './components/HeadingTitle.vue'
 import { data } from './utils/constants'
 
 export default {
   data() {
     return {
-      peopleList: data 
+      peopleList: data
     }
   },
   components: {
-    PersonList 
+    PersonList,
+    HeadingTitle
   }
 }
 </script>
 
-
 <template>
   <div class="container">
-    <PersonList :list="peopleList" /> 
+    <HeadingTitle :list="peopleList" />
+    <PersonList :list="peopleList" />
   </div>
 </template>
 
 <style scoped>
 .container {
-  border: 1px solid black;
+  padding: 2rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 </style>
