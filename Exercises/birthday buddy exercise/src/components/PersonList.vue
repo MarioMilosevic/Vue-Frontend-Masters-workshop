@@ -14,7 +14,7 @@ export default defineComponent({
 <template>
   <ul class="list">
     <li v-for="(person, index) in list" :key="index" class="item">
-      <img :src="person.image" alt="image" class="picture" />
+      <img :src="person.image" :alt="person.image" class="picture" />
       <div class="information_container">
         <h2 class="fullName">{{ person.fullName }}</h2>
         <h3 class="age">{{ person.age }} years</h3>

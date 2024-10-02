@@ -4,6 +4,8 @@ import person3 from '../../assets/person-3.jpeg'
 import person4 from '../../assets/person-4.jpeg'
 import person5 from '../../assets/person-5.jpeg'
 
+export const baseUrl = 'https://www.course-api.com/images/people/'
+
 export const data = [
   {
     fullName: 'Bertie Yates',

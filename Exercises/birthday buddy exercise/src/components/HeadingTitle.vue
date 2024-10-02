@@ -1,7 +1,9 @@
 <script>
 export default {
   props: {
-    list: Array
+    list: {
+      type: Array
+    }
   }
 }
 </script>
@@ -15,8 +17,8 @@ export default {
 
 <style scoped>
 .heading {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 </style>
