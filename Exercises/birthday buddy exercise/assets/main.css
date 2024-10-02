@@ -10,3 +10,12 @@ body {
   justify-content: center;
   height: 100vh;
 }
+
+.button {
+  background-color: darkmagenta;
+  color: aliceblue;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}

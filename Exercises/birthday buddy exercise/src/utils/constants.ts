@@ -33,4 +33,3 @@ export const data = [
     image: person5
   }
 ]
-console.log(data)

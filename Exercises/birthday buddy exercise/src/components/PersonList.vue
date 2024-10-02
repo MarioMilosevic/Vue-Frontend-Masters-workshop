@@ -7,18 +7,25 @@ export default defineComponent({
       type: Array,
       required: true
     }
-  }
+  },
+  emits: ['filter-people']
 })
 </script>
 
 <template>
   <ul class="list">
-    <li v-for="(person, index) in list" :key="index" class="item">
+    <li
+      v-for="(person, index) in list"
+      :key="index"
+      class="item"
+      @click="$emit('filter-people', person.fullName)"
+    >
       <img :src="person.image" :alt="person.image" class="picture" />
       <div class="information_container">
         <h2 class="fullName">{{ person.fullName }}</h2>
         <h3 class="age">{{ person.age }} years</h3>
       </div>
+      <button class="button">Delete me</button>
     </li>
   </ul>
 </template>
@@ -33,6 +40,7 @@ export default defineComponent({
 
 .item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
@@ -50,7 +58,7 @@ export default defineComponent({
 }
 
 .age {
-    font-weight: 300;
-    font-size: 1rem;
+  font-weight: 300;
+  font-size: 1rem;
 }
 </style>

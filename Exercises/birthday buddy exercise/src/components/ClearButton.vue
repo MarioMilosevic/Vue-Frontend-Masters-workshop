@@ -14,13 +14,4 @@ export default {
   <button class="button" @click="$emit('clear-all')">Clear All</button>
 </template>
 
-<style scoped>
-.button {
-  background-color: darkmagenta;
-  color: aliceblue;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-}
-</style>
+
