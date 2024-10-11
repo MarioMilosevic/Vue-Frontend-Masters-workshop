@@ -1,38 +1,34 @@
 <script>
-// const url = "https://pokeapi.co/api/v2/pokemon?limit=151";
-import BaseButton from "./components/BaseButton.vue";
-import BaseLayout from "./components/BaseLayout.vue";
-
+import { reactive } from "vue";
 export default {
-  components: {
-    BaseButton,
-    BaseLayout,
+  async setup() {
+    const state = reactive({
+      userList: [],
+    });
+    async function fetchUsers() {
+      const response = await fetch(
+        "http://jsonplaceholder.typicode.com/users"
+      ).then((response) => response.json());
+      return response;
+    }
+
+    state.userList = await fetchUsers();
+
+    return {
+      state,
+      fetchUsers,
+    };
   },
-  // setup() {
-  // },
   // data: () => ({
-  //   pokedex: [1, 2, 3],
+  //   userList: [],
   // }),
-  // methods: {
-  //   async fetchPokemon() {
-  //     this.pokedex = await fetch(url).then((response) => response.json());
-  //   },
-  // },
-  // beforeCreate() {
-  //   console.log("Before create");
-  // },
-  // created() {
-  //   console.log("Create");
-  //   console.log(this.pokedex);
-  // },
 };
 </script>
 
 <template>
-  <BaseLayout>
-    <template v-slot:main>Main </template>
-    <template v-slot:footer>Footer </template>
-    <template v-slot:sidebar>Aside </template>
-  </BaseLayout>
+  <Suspense>
+    {{ state.userList }}
 
+    <template v-slot:fallback>Data is loading...</template>
+  </Suspense>
 </template>
