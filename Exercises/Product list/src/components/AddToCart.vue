@@ -1,6 +1,6 @@
 <template>
   <button>
-    <v-icon name="co-cart" />
+    <v-icon name="co-cart" class="icon"/>
     Add to cart
   </button>
 </template>
@@ -22,7 +22,8 @@ export default {
 button {
   padding: 10px 20px;
   border-radius: 20px;
-  border: none;
+  /* border: none; */
+  border: 1px solid #6b7280;
   cursor: pointer;
   position: absolute;
   bottom: -4%;
@@ -31,5 +32,10 @@ button {
 }
 button:hover {
   color: #ef4444;
+  border-color: #ef4444;
+}
+
+.icon {
+    color: #ef4444;
 }
 </style>

@@ -11,16 +11,18 @@
 </template>
 
 <script>
+import AddToCart from "./AddToCart.vue";
 export default {
-  props: ['dessert'],
+  props: ["dessert"],
+  components: {
+    AddToCart,
+  },
 };
 </script>
 
 <style scoped>
 .image-container {
   position: relative;
-  background-color: red;
-  width: 300px;
 }
 
 img {
@@ -28,9 +30,14 @@ img {
 }
 
 .dessert-info {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
+}
+
+
+h3 {
+  padding-top: 1rem;
+  font-weight: 100;
 }
 </style>

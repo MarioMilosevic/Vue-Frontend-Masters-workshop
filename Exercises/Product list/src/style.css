@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app {
+    margin: 2rem auto;
+    max-width: 1200px;
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+}
