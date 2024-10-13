@@ -1,20 +1,10 @@
 <template>
-  <ul>
-    <li v-for="dessert in desserts" :key="dessert.name">
-      <img v-bind:src="dessert.image" v-bind:alt="dessert.image" />
-      <div>
-        <h2>{{ dessert.name }}</h2>
-        <h3>{{ dessert.description }}</h3>
-        <h4>{{ dessert.price }}</h4>
-      </div>
-    </li>
-  </ul>
+  <List :list="desserts"/>
 </template>
 
 <script lang="ts">
 import { dessertsData } from "./utilities/constants";
-import SingleDesert from "./components/single-desert.vue";
-console.log(dessertsData);
+import List from "./components/List.vue";
 export default {
   data() {
     return {
@@ -22,7 +12,7 @@ export default {
     };
   },
   components: {
-    SingleDesert,
+    List,
   },
 };
 </script>
