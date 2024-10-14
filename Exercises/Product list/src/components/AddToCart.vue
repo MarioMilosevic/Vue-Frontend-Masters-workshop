@@ -1,6 +1,6 @@
 <template>
-  <button>
-    <v-icon name="co-cart" class="icon"/>
+  <button @click="$emit('add-to-cart')">
+    <v-icon name="co-cart" class="icon" />
     Add to cart
   </button>
 </template>
@@ -15,6 +15,7 @@ export default {
   components: {
     "v-icon": OhVueIcon,
   },
+  emits: ["add-to-cart"],
 };
 </script>
 
@@ -22,7 +23,6 @@ export default {
 button {
   padding: 10px 20px;
   border-radius: 20px;
-  /* border: none; */
   border: 1px solid #6b7280;
   cursor: pointer;
   position: absolute;
@@ -36,6 +36,7 @@ button:hover {
 }
 
 .icon {
-    color: #ef4444;
+  color: #ef4444;
 }
 </style>
+

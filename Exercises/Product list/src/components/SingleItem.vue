@@ -1,7 +1,7 @@
 <template>
   <div class="image-container">
     <img :src="dessert.image" :alt="dessert.image" />
-    <AddToCart />
+    <AddToCart @add-to-cart="addDessert" :dessert="dessert" />
   </div>
   <div class="dessert-info">
     <h3>{{ dessert.name }}</h3>
@@ -17,6 +17,12 @@ export default {
   components: {
     AddToCart,
   },
+  inject: ['add'],
+  methods: {
+    addDessert() { 
+      this.add(this.dessert); 
+    }
+  }
 };
 </script>
 
@@ -40,4 +46,4 @@ h3 {
   padding-top: 1rem;
   font-weight: 100;
 }
-</style>
+</style> 
