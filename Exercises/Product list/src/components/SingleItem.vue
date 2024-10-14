@@ -5,15 +5,14 @@
     <AddToCart
       @add-to-cart="addDessert"
       :dessert="dessert"
-      v-if="dessert.capacity === 0" 
-      />
-      <!-- ako cart sadrzi ovaj proizvod onda -->
+      v-if="dessert.capacity === 0"
+    />
     <ItemCount :dessert="dessert" v-else />
   </div>
   <div class="dessert-info">
     <h3>{{ dessert.name }}</h3>
     <h2>{{ dessert.description }}</h2>
-    <h4>{{ dessert.price }}</h4>
+    <h4>{{ `$${dessert.price.toFixed(2)}` }}</h4>
   </div>
 </template>
 
@@ -32,11 +31,6 @@ export default {
       this.add(this.dessert);
     },
   },
-  // computed: {
-  //   doesExist() {
-      
-  //   }
-  // }
 };
 </script>
 
@@ -58,5 +52,9 @@ img {
 h3 {
   padding-top: 1rem;
   font-weight: 100;
+}
+
+h4 {
+  color: #ef4444;
 }
 </style>

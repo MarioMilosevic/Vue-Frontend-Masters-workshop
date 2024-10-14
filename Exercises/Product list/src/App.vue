@@ -26,7 +26,6 @@ export default {
         dessert.capacity = 1;
         this.cart.push(dessert);
       }
-      console.log(this.cart);
     },
     incrementItem(dessert) {
       const item = this.findCartItem(dessert);
