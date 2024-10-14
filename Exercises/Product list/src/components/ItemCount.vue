@@ -10,10 +10,10 @@ export default {
   },
   inject: ["increment", "decrement"],
   methods: {
-    addDessert() {
+    incrementDessert() {
       this.increment(this.dessert);
     },
-    removeDessert() {
+    decrementDessert() {
       this.decrement(this.dessert);
     },
   },
@@ -22,9 +22,9 @@ export default {
 
 <template>
   <div class="wrapper interaction-button">
-    <v-icon name="co-minus" class="icon" @click="removeDessert" />
+    <v-icon name="co-minus" class="icon" @click="decrementDessert" />
     <h2>{{ dessert.capacity }}</h2>
-    <v-icon name="co-plus" class="icon" @click="addDessert" />
+    <v-icon name="co-plus" class="icon" @click="incrementDessert" />
   </div>
 </template>
 
