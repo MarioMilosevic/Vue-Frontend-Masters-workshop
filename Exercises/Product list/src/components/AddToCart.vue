@@ -1,10 +1,3 @@
-<template>
-  <button @click="$emit('add-to-cart')">
-    <v-icon name="co-cart" class="icon" />
-    Add to cart
-  </button>
-</template>
-
 <script>
 import { CoCart } from "oh-vue-icons/icons";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
@@ -19,17 +12,14 @@ export default {
 };
 </script>
 
+<template>
+  <button @click="$emit('add-to-cart')" class="interaction-button">
+    <v-icon name="co-cart" class="icon" />
+    Add to cart
+  </button>
+</template>
+
 <style scoped>
-button {
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: 1px solid #6b7280;
-  cursor: pointer;
-  position: absolute;
-  bottom: -4%;
-  transform: translateX(-50%);
-  left: 50%;
-}
 button:hover {
   color: #ef4444;
   border-color: #ef4444;
@@ -39,4 +29,3 @@ button:hover {
   color: #ef4444;
 }
 </style>
-

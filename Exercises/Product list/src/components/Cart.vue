@@ -1,3 +1,9 @@
+<script>
+export default {
+  props: ["cart"],
+};
+</script>
+
 <template>
   <div class="wrapper">
     <h1>Your Cart ({{ cart.length }})</h1>
@@ -5,16 +11,10 @@
   </div>
 </template>
 
-<script>
-export default {
-    props: ['cart']
-};
-</script>
-
 <style scoped>
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 </style>

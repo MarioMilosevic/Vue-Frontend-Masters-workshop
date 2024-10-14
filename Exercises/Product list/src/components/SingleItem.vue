@@ -1,7 +1,13 @@
 <template>
   <div class="image-container">
     <img :src="dessert.image" :alt="dessert.image" />
-    <AddToCart @add-to-cart="addDessert" :dessert="dessert" />
+
+    <AddToCart
+      @add-to-cart="addDessert"
+      :dessert="dessert"
+      v-if="cart.length === 0"
+    />
+    <ItemCount v-else />
   </div>
   <div class="dessert-info">
     <h3>{{ dessert.name }}</h3>
@@ -12,17 +18,19 @@
 
 <script>
 import AddToCart from "./AddToCart.vue";
+import ItemCount from "./ItemCount.vue";
 export default {
-  props: ["dessert"],
+  props: ["dessert", "cart"],
   components: {
     AddToCart,
+    ItemCount,
   },
-  inject: ['add'],
+  inject: ["add"],
   methods: {
-    addDessert() { 
-      this.add(this.dessert); 
-    }
-  }
+    addDessert() {
+      this.add(this.dessert);
+    },
+  },
 };
 </script>
 
@@ -41,9 +49,8 @@ img {
   gap: 1rem;
 }
 
-
 h3 {
   padding-top: 1rem;
   font-weight: 100;
 }
-</style> 
+</style>

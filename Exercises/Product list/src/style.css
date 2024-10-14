@@ -1,13 +1,23 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #app {
-    margin: 2rem auto;
-    max-width: 1200px;
-    display: flex;
-    align-items: flex-start;
-    gap: 4rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.interaction-button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #6b7280;
+  position: absolute;
+  bottom: -4%;
+  transform: translateX(-50%);
+  left: 50%;
 }

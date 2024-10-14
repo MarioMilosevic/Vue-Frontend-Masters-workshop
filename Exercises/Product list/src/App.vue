@@ -1,8 +1,3 @@
-<template>
-  <List :list="desserts" />
-  <Cart :cart="cart" />
-</template>
-
 <script lang="ts">
 import { dessertsData } from "./utilities/constants";
 import List from "./components/List.vue";
@@ -21,15 +16,18 @@ export default {
   },
   methods: {
     add(dessert) {
-      console.log('add')
-      this.cart.push(dessert)
-      console.log(this.cart)
-    }
+      this.cart.push(dessert);
+    },
   },
   provide() {
     return {
-      add:this.add
-    }
-  }
+      add: this.add,
+    };
+  },
 };
 </script>
+
+<template>
+  <List :list="desserts" :cart="cart"/>
+  <Cart :cart="cart" />
+</template>

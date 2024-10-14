@@ -3,7 +3,7 @@
     <h1>Desserts</h1>
     <ul class="list">
       <li v-for="dessert in list" :key="dessert.name">
-        <SingleItem :dessert="dessert" />
+        <SingleItem :dessert="dessert" :cart="cart"/>
       </li>
     </ul>
   </div>
@@ -12,7 +12,7 @@
 <script>
 import SingleItem from "./SingleItem.vue";
 export default {
-  props: ["list"],
+  props: ["list", 'cart'],
   components: {
     SingleItem,
   },
