@@ -15,19 +15,44 @@ export default {
     };
   },
   methods: {
+    findCartItem(dessert) {
+      return this.cart.find((item) => item.name === dessert.name);
+    },
     add(dessert) {
-      this.cart.push(dessert);
+      const item = this.findCartItem(dessert);
+      if (item) {
+        item.capacity++;
+      } else {
+        dessert.capacity = 1;
+        this.cart.push(dessert);
+      }
+      console.log(this.cart);
+    },
+    incrementItem(dessert) {
+      const item = this.findCartItem(dessert);
+      if (item) {
+        item.capacity++;
+      }
+    },
+    decrementItem(dessert) {
+      const item = this.findCartItem(dessert);
+      if (item && item.capacity > 1) {
+        item.capacity--;
+      }
     },
   },
+
   provide() {
     return {
       add: this.add,
+      increment: this.incrementItem,
+      decrement: this.decrementItem,
     };
   },
 };
 </script>
 
 <template>
-  <List :list="desserts" :cart="cart"/>
+  <List :list="desserts" :cart="cart" />
   <Cart :cart="cart" />
 </template>

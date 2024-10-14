@@ -4,21 +4,9 @@ import { OhVueIcon, addIcons } from "oh-vue-icons";
 addIcons(CoMinus, CoPlus);
 
 export default {
-  data() {
-    return {
-      count: 0, // Fixed syntax error: Changed semicolon to comma
-    };
-  },
+  props: ["dessert"],
   components: {
     "v-icon": OhVueIcon,
-  },
-  methods: {
-    incrementCount() {
-      this.count++;
-    },
-    decrementCount() {
-      this.count--;
-    },
   },
 };
 </script>
@@ -26,8 +14,7 @@ export default {
 <template>
   <div class="wrapper interaction-button">
     <v-icon name="co-minus" class="icon" />
-    <h2>{{ count }}</h2>
-    <!-- Removed the extra < and > -->
+    <h2>{{ dessert.capacity }}</h2>
     <v-icon name="co-plus" class="icon" />
   </div>
 </template>
@@ -40,5 +27,13 @@ export default {
   align-items: center;
   justify-content: space-between;
   width: 50%;
+}
+
+.icon {
+  cursor: pointer;
+  border-radius: 9999px;
+}
+.icon:active {
+  background-color: white;
 }
 </style>

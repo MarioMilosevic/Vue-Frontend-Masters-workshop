@@ -5,9 +5,10 @@
     <AddToCart
       @add-to-cart="addDessert"
       :dessert="dessert"
-      v-if="cart.length === 0"
-    />
-    <ItemCount v-else />
+      v-if="dessert.capacity === 0" 
+      />
+      <!-- ako cart sadrzi ovaj proizvod onda -->
+    <ItemCount :dessert="dessert" v-else />
   </div>
   <div class="dessert-info">
     <h3>{{ dessert.name }}</h3>
@@ -31,6 +32,11 @@ export default {
       this.add(this.dessert);
     },
   },
+  // computed: {
+  //   doesExist() {
+      
+  //   }
+  // }
 };
 </script>
 
