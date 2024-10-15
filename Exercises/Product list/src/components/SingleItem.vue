@@ -1,6 +1,10 @@
 <template>
   <div class="image-container">
-    <img :src="dessert.image" :alt="dessert.image" />
+    <img
+      :src="dessert.image"
+      :alt="dessert.image"
+      :class="{ selected: dessert.capacity > 0 }"
+    />
 
     <AddToCart
       @add-to-cart="addDessert"
@@ -56,5 +60,9 @@ h3 {
 
 h4 {
   color: #ef4444;
+}
+
+.selected {
+  border: 3px solid #ef4444;
 }
 </style>

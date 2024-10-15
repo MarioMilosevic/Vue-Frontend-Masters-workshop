@@ -23,6 +23,7 @@ export default {
 button:hover {
   color: #ef4444;
   border-color: #ef4444;
+  cursor: pointer;
 }
 
 .icon {
