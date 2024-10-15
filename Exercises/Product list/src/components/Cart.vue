@@ -1,5 +1,12 @@
 <script>
+import CartItem from './CartItem.vue';
+import EmptyCart from './EmptyCart.vue';
+import FilledCart from './FilledCart.vue';
 export default {
+  components: {
+    CartItem,
+    EmptyCart
+  },
   props: ["cart"],
   computed: {
     totalCapacity() {
@@ -12,7 +19,10 @@ export default {
 <template>
   <div class="wrapper">
     <h1>Your Cart ({{ totalCapacity }})</h1>
-    <span>Your added items will appear here</span>
+    <EmptyCart v-if="totalCapacity === 0"/>
+    <FilledCart v-else/>
+    <CartItem/>
+
   </div>
 </template>
 
@@ -21,5 +31,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background-color: #fafafa;
+  padding: 1rem;
 }
 </style>

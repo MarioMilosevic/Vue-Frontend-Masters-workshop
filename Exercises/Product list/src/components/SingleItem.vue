@@ -1,3 +1,22 @@
+
+<script>
+import AddToCart from "./AddToCart.vue";
+import ItemCount from "./ItemCount.vue";
+export default {
+  props: ["dessert", "cart"],
+  components: {
+    AddToCart,
+    ItemCount,
+  },
+  inject: ["add"],
+  methods: {
+    addDessert() {
+      this.add(this.dessert);
+    },
+  },
+};
+</script>
+
 <template>
   <div class="image-container">
     <img
@@ -19,25 +38,6 @@
     <h4>{{ `$${dessert.price.toFixed(2)}` }}</h4>
   </div>
 </template>
-
-<script>
-import AddToCart from "./AddToCart.vue";
-import ItemCount from "./ItemCount.vue";
-export default {
-  props: ["dessert", "cart"],
-  components: {
-    AddToCart,
-    ItemCount,
-  },
-  inject: ["add"],
-  methods: {
-    addDessert() {
-      this.add(this.dessert);
-    },
-  },
-};
-</script>
-
 <style scoped>
 .image-container {
   position: relative;

@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f3f4f6;
+}
+
 #app {
   margin: 2rem auto;
   max-width: 1200px;
