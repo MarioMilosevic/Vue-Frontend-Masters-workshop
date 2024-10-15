@@ -1,4 +1,3 @@
-
 <script>
 import AddToCart from "./AddToCart.vue";
 import ItemCount from "./ItemCount.vue";
@@ -63,6 +62,6 @@ h4 {
 }
 
 .selected {
-  border: 3px solid #ef4444;
+  outline: 3px solid #ef4444;
 }
 </style>

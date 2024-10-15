@@ -5,18 +5,22 @@ addIcons(IoCloseCircleOutline);
 export default {
   components: {
     "v-icon": OhVueIcon,
-  },
+    },
+    props: ['item'],
+    mounted() {
+    console.log(this.item)
+  }
 };
 </script>
 <template>
   <li>
-    <h2>Waffle with Berries</h2>
+    <h3>{{ item.description }}</h3>
     <div class="summary">
-      <span>2x</span>
-      <span>@ $7.00</span>
-      <span>@ $14.00</span>
+      <span>{{item.capacity}}x</span>
+      <span>@ ${{ item.price.toFixed(2) }}</span>
+      <span>@ ${{ (item.price * item.capacity).toFixed(2) }}</span>
     </div>
-    <v-icon name="io-close-circle-outline" class="icon"  />
+    <v-icon name="io-close-circle-outline" class="icon" scale="1.4"/>
   </li>
 </template>
 
@@ -27,20 +31,20 @@ li {
   flex-direction: column;
   gap: 0.5rem;
   position: relative;
-  /* border: 1px solid black; */
- padding: 0;
+  border-bottom: 1px solid black;
+  padding-bottom: 8px;
 }
 
 .summary {
-    display: flex;
-    gap: 0.6rem;
+  display: flex;
+  gap: 0.6rem;
 }
 
 .icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: -10%;
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -5%;
+  cursor: pointer;
 }
 </style>
