@@ -21,9 +21,9 @@ export default {
 </script>
 
 <template>
-  <ul class="list">
+  <ul class="cartList">
     <li v-for="item in cart" :key="item.name">
-      <CartItem :item="item" />
+      <CartItem :item="item" :showButton="true" />
     </li>
   </ul>
   <div class="total">
@@ -35,14 +35,20 @@ export default {
 
   <Teleport to="body">
     <div v-if="open" class="modal">
-      <p>Hello from the Modal</p>
-      <button @click="open = false">Close</button>
+      <h1>Order confirmed</h1>
+      <h2>We hope you enjoy your food!</h2>
+      <ul class="modalList">
+        <li v-for="item in cart" :key="item.name">
+          <CartItem :item :showButton="false" />
+        </li>
+      </ul>
+      <button @click="open = false">Start new order</button>
     </div>
   </Teleport>
 </template>
 
 <style scoped>
-ul {
+.cartList {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -75,5 +81,13 @@ button:hover {
   width: 500px;
   height: 500px;
   background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modalList {
+  list-style: none;
 }
 </style>

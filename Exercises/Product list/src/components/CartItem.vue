@@ -6,7 +6,34 @@ export default {
   components: {
     "v-icon": OhVueIcon,
   },
-  props: ["item"],
+  props: {
+    item: {
+      name: {
+        type: String,
+        required: true,
+      },
+      description: {
+        type: String,
+        required: true,
+      },
+      capacity: {
+        type: Number,
+        required: true,
+      },
+      image: {
+        type: String,
+        required: false,
+      },
+      price: {
+        type: Number,
+        required: true,
+      },
+    },
+    showButton: {
+      type: Boolean,
+      required: true,
+    },
+  },
   inject: ["removeItem"],
   methods: {
     deleteItem() {
