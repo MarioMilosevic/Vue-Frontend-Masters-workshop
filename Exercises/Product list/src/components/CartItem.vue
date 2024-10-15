@@ -43,31 +43,39 @@ export default {
 };
 </script>
 <template>
-  <li>
-    <h3>{{ item.description }}</h3>
-    <div class="summary">
-      <span>{{ item.capacity }}x</span>
-      <span>@ ${{ item.price.toFixed(2) }}</span>
-      <span>@ ${{ (item.price * item.capacity).toFixed(2) }}</span>
+  <div class="wrapper">
+    <img v-if="!showButton" :src="item.image" :alt="item.image" />
+    <div class="content">
+      <h3>{{ item.description }}</h3>
+      <div class="summary">
+        <span>{{ item.capacity }}x</span>
+        <span>@ ${{ item.price.toFixed(2) }}</span>
+        <span>@ ${{ (item.price * item.capacity).toFixed(2) }}</span>
+      </div>
+      <v-icon
+        v-if="showButton"
+        name="io-close-circle-outline"
+        class="icon"
+        scale="1.4"
+        @click="deleteItem"
+      />
     </div>
-    <v-icon
-      name="io-close-circle-outline"
-      class="icon"
-      scale="1.4"
-      @click="deleteItem"
-    />
-  </li>
+  </div>
 </template>
 
 <style scoped>
-li {
+.wrapper {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
   position: relative;
   border-bottom: 1px solid black;
   padding-bottom: 8px;
+}
+
+img {
+  width: 35px;
 }
 
 .summary {
