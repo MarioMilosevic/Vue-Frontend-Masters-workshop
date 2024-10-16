@@ -3,15 +3,10 @@ import AddToCart from "./AddToCart.vue";
 import ItemCount from "./ItemCount.vue";
 export default {
   props: ["dessert", "cart"],
+  emits: ["addItem", "removeItem", "incrementItem", "decrementItem"],
   components: {
     AddToCart,
     ItemCount,
-  },
-  inject: ["add"],
-  methods: {
-    addDessert() {
-      this.add(this.dessert);
-    },
   },
 };
 </script>
@@ -25,7 +20,7 @@ export default {
     />
 
     <AddToCart
-      @add-to-cart="addDessert"
+      @add-to-cart="$emit('addItem', dessert)"
       :dessert="dessert"
       v-if="dessert.capacity === 0"
     />

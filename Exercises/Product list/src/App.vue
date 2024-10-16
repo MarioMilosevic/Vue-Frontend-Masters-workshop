@@ -2,16 +2,19 @@
 import { dessertsData } from "./utilities/constants";
 import List from "./components/List.vue";
 import Cart from "./components/Cart.vue";
+import Modal from "./components/Modal.vue";
 
 export default {
   components: {
     List,
     Cart,
+    Modal,
   },
   data() {
     return {
       desserts: dessertsData,
       cart: [],
+      isModalOpen: false,
     };
   },
   methods: {
@@ -48,11 +51,8 @@ export default {
       }
     },
     emptyCart() {
-      // forEach
+      this.desserts.forEach((dessert) => (dessert.capacity = 0));
       this.cart = [];
-      this.desserts = this.desserts.map((prev) => {
-        return { ...prev, capacity: 0 }; 
-      });
     },
   },
 
@@ -71,4 +71,5 @@ export default {
 <template>
   <List :list="desserts" :cart="cart" />
   <Cart :cart="cart" />
+  <Modal :isModalOpen="isModalOpen" :cart="cart" @start-new-order="emptyCart" />
 </template>

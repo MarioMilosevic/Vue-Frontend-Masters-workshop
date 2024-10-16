@@ -86,6 +86,12 @@ img {
   width: 35px;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
 .summary {
   display: flex;
   gap: 0.6rem;
