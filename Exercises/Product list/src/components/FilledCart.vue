@@ -49,7 +49,6 @@ export default {
         </li>
       </ul>
       <button @click="startNewOrder()">Start new order</button>
-      <!-- <button @click="open = false">Start new order</button> -->
     </div>
   </Teleport>
 </template>
