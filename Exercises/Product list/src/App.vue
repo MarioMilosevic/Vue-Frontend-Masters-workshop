@@ -48,6 +48,7 @@ export default {
       }
     },
     emptyCart() {
+      // forEach
       this.cart = [];
       this.desserts = this.desserts.map((prev) => {
         return { ...prev, capacity: 0 }; 

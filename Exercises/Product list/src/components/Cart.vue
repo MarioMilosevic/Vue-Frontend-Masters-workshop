@@ -20,7 +20,6 @@ export default {
     <h1>Your Cart ({{ totalCapacity }})</h1>
     <EmptyCart v-if="totalCapacity === 0"/>
     <FilledCart v-else :cart="cart"/>
-
   </div>
 </template>
 

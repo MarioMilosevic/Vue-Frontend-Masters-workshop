@@ -7,7 +7,7 @@
         <CartItem :item :showButton="false" />
       </li>
     </ul>
-    <button @click="reset">Start new order</button>
+    <button @click="$emit('start-new-order')">Start new order</button>
   </div>
 </template>
 
@@ -15,14 +15,10 @@
 import CartItem from "./CartItem.vue";
 export default {
   name: "Modal",
-  props: ["cart", "open"],
+    props: ["cart", "open"],
+    emits: ['start-new-order'],
   components: {
     CartItem,
-  },
-  methods: {
-    reset() {
-      this.$emit("start-new-order");
-    },
   },
 };
 </script>
