@@ -7,7 +7,7 @@ export default {
     FilledCart
   },
   props: ["cart"],
-  emits:['remove-item'],
+  emits:['remove-item', 'handle-modal'],
   computed: {
     totalCapacity() {
       return this.cart.reduce((total, dessert) => total + dessert.capacity, 0);
@@ -16,6 +16,9 @@ export default {
   methods: {
     onRemoveItem(dessert) {
       this.$emit('remove-item', dessert)
+    },
+    onHandleModal(state) {
+      this.$emit('handle-modal', state)
     }
   }
 };
@@ -25,7 +28,7 @@ export default {
   <div class="wrapper">
     <h1>Your Cart ({{ totalCapacity }})</h1>
     <EmptyCart v-if="totalCapacity === 0"/>
-    <FilledCart v-else :cart="cart" @remove-item="onRemoveItem"/>
+    <FilledCart v-else :cart="cart" @remove-item="onRemoveItem" @handle-modal="onHandleModal"/>
   </div>
 </template>
 

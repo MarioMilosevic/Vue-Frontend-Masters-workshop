@@ -53,23 +53,17 @@ export default {
     emptyCart() {
       this.desserts.forEach((dessert) => (dessert.capacity = 0));
       this.cart = [];
+      this.isModalOpen = false;
     },
-  },
-
-  provide() {
-    return {
-      add: this.add,
-      removeItem: this.removeItem,
-      increment: this.incrementItem,
-      decrement: this.decrementItem,
-      emptyCart: this.emptyCart,
-    };
+    handleModal(state) {
+      this.isModalOpen = state;
+    },
   },
 };
 </script>
 
 <template>
   <List :list="desserts" :cart="cart" @remove-item="removeItem" />
-  <Cart :cart="cart" @remove-item="removeItem" />
-  <Modal :isModalOpen="isModalOpen" :cart="cart" @start-new-order="emptyCart" />
+  <Cart :cart="cart" @remove-item="removeItem" @handle-modal="handleModal" />
+  <Modal :isModalOpen="isModalOpen" :cart="cart" @empty-cart="emptyCart" />
 </template>

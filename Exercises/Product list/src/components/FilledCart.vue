@@ -9,17 +9,16 @@ export default {
   },
   components: {
     CartItem,
-    Modal,
   },
   props: ["cart"],
-  emits:['remove-item'],
+  emits: ["remove-item", "handle-modal"],
   methods: {
     startNewOrder() {
       this.emptyCart(), (this.open = false);
     },
     onRemoveItem(dessert) {
-      this.$emit('remove-item', dessert)
-    }
+      this.$emit("remove-item", dessert);
+    },
   },
   computed: {
     totalPrice() {
@@ -34,7 +33,7 @@ export default {
 <template>
   <ul class="cartList">
     <li v-for="item in cart" :key="item.name">
-      <CartItem :item="item" :showButton="true" @remove-item="onRemoveItem"/>
+      <CartItem :item="item" :showButton="true" @remove-item="onRemoveItem" />
     </li>
   </ul>
   <div class="total">
@@ -42,11 +41,7 @@ export default {
     <h2>{{ `$${totalPrice}` }}</h2>
   </div>
 
-  <button @click="open = true">Confirm order</button>
-
-  <Teleport to="body">
-    <Modal :open="open" :cart="cart" @start-new-order="startNewOrder" />
-  </Teleport>
+  <button @click="$emit('handle-modal',true)">Confirm order</button>
 </template>
 
 <style scoped>

@@ -81,4 +81,8 @@ img {
   right: -5%;
   cursor: pointer;
 }
+
+h3 {
+  font-weight: 500;
+}
 </style>
