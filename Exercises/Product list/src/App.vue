@@ -47,6 +47,9 @@ export default {
         }
       }
     },
+    emptyCart() {
+      this.cart = [];
+    },
   },
 
   provide() {
@@ -55,6 +58,7 @@ export default {
       removeItem: this.removeItem,
       increment: this.incrementItem,
       decrement: this.decrementItem,
+      emptyCart: this.emptyCart,
     };
   },
 };

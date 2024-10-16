@@ -10,10 +10,16 @@ export default {
     CartItem,
   },
   props: ["cart"],
+  inject: ["emptyCart"],
+  methods: {
+    startNewOrder() {
+      this.emptyCart(), (this.open = false);
+    },
+  },
   computed: {
     totalPrice() {
       return this.cart
-        .reduce((total, dessert) => total + dessert.price, 0)
+        .reduce((total, dessert) => total + dessert.price * dessert.capacity, 0)
         .toFixed(2);
     },
   },
@@ -42,7 +48,8 @@ export default {
           <CartItem :item :showButton="false" />
         </li>
       </ul>
-      <button @click="open = false">Start new order</button>
+      <button @click="startNewOrder()">Start new order</button>
+      <!-- <button @click="open = false">Start new order</button> -->
     </div>
   </Teleport>
 </template>
@@ -89,5 +96,8 @@ button:hover {
 
 .modalList {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 </style>

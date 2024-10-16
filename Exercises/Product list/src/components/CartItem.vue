@@ -40,6 +40,14 @@ export default {
       this.removeItem(this.item);
     },
   },
+  computed: {
+    itemPrice() {
+      return this.item.price.toFixed(2)
+    },
+    totalPrice() {
+      return (this.item.price * this.item.capacity).toFixed(2)
+    }
+  }
 };
 </script>
 <template>
@@ -49,8 +57,8 @@ export default {
       <h3>{{ item.description }}</h3>
       <div class="summary">
         <span>{{ item.capacity }}x</span>
-        <span>@ ${{ item.price.toFixed(2) }}</span>
-        <span>@ ${{ (item.price * item.capacity).toFixed(2) }}</span>
+        <span>@ ${{ itemPrice }}</span>
+        <span>@ ${{ totalPrice }}</span>
       </div>
       <v-icon
         v-if="showButton"
