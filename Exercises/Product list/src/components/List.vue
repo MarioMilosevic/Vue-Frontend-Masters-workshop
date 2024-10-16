@@ -2,6 +2,7 @@
 import SingleItem from "./SingleItem.vue";
 export default {
   props: ["list", "cart"],
+  emits: ["remove-item"],
   components: {
     SingleItem,
   },
@@ -18,9 +19,8 @@ export default {
         this.cart.push(dessert);
       }
     },
-    removeItem(dessert) {
-      dessert.capacity = 0;
-      this.cart = this.cart.filter((item) => item.name !== dessert.name);
+    removeItemEmit(dessert) {
+      this.$emit("remove-item", dessert);
     },
     incrementItem(dessert) {
       const item = this.findCartItem(dessert);
@@ -34,7 +34,7 @@ export default {
         if (item.capacity > 1) {
           item.capacity--;
         } else {
-          this.removeItem(dessert);
+          this.removeItemEmit(dessert);
         }
       }
     },
@@ -51,7 +51,7 @@ export default {
           :dessert="dessert"
           :cart="cart"
           @addItem="addItem"
-          @removeItem="removeItem"
+          @removeItem="removeItemEmit"
           @incrementItem="incrementItem"
           @decrementItem="decrementItem"
         />

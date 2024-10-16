@@ -8,23 +8,15 @@ export default {
   components: {
     "v-icon": OhVueIcon,
   },
-  inject: ["increment", "decrement"],
-  methods: {
-    incrementDessert() {
-      this.increment(this.dessert);
-    },
-    decrementDessert() {
-      this.decrement(this.dessert);
-    },
-  },
+  emits: ["increment-item", "decrement-item"],
 };
 </script>
 
 <template>
   <div class="wrapper interaction-button">
-    <v-icon name="co-minus" class="icon" @click="decrementDessert" />
+    <v-icon name="co-minus" class="icon" @click="$emit('decrement-item')" />
     <h2>{{ dessert.capacity }}</h2>
-    <v-icon name="co-plus" class="icon" @click="incrementDessert" />
+    <v-icon name="co-plus" class="icon" @click="$emit('increment-item')" />
   </div>
 </template>
 

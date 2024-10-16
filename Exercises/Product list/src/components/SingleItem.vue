@@ -20,11 +20,16 @@ export default {
     />
 
     <AddToCart
+      v-if="dessert.capacity === 0"
       @add-to-cart="$emit('addItem', dessert)"
       :dessert="dessert"
-      v-if="dessert.capacity === 0"
     />
-    <ItemCount :dessert="dessert" v-else />
+    <ItemCount
+      v-else
+      :dessert="dessert"
+      @increment-item="$emit('incrementItem', dessert)"
+      @decrement-item="$emit('decrementItem', dessert)"
+    />
   </div>
   <div class="dessert-info">
     <h3>{{ dessert.name }}</h3>

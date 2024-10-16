@@ -12,11 +12,14 @@ export default {
     Modal,
   },
   props: ["cart"],
-  inject: ["emptyCart"],
+  emits:['remove-item'],
   methods: {
     startNewOrder() {
       this.emptyCart(), (this.open = false);
     },
+    onRemoveItem(dessert) {
+      this.$emit('remove-item', dessert)
+    }
   },
   computed: {
     totalPrice() {
@@ -31,7 +34,7 @@ export default {
 <template>
   <ul class="cartList">
     <li v-for="item in cart" :key="item.name">
-      <CartItem :item="item" :showButton="true" />
+      <CartItem :item="item" :showButton="true" @remove-item="onRemoveItem"/>
     </li>
   </ul>
   <div class="total">

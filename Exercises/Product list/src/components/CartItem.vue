@@ -6,38 +6,15 @@ export default {
   components: {
     "v-icon": OhVueIcon,
   },
+  emits:['remove-item'],
   props: {
     item: {
-      name: {
-        type: String,
-        required: true,
-      },
-      description: {
-        type: String,
-        required: true,
-      },
-      capacity: {
-        type: Number,
-        required: true,
-      },
-      image: {
-        type: String,
-        required: false,
-      },
-      price: {
-        type: Number,
-        required: true,
-      },
+      type: Object,
+      required:true
     },
     showButton: {
       type: Boolean,
       required: true,
-    },
-  },
-  inject: ["removeItem"],
-  methods: {
-    deleteItem() {
-      this.removeItem(this.item);
     },
   },
   computed: {
@@ -65,7 +42,7 @@ export default {
         name="io-close-circle-outline"
         class="icon"
         scale="1.4"
-        @click="deleteItem"
+        @click="$emit('remove-item', item)"
       />
     </div>
   </div>

@@ -69,7 +69,7 @@ export default {
 </script>
 
 <template>
-  <List :list="desserts" :cart="cart" />
-  <Cart :cart="cart" />
+  <List :list="desserts" :cart="cart" @remove-item="removeItem" />
+  <Cart :cart="cart" @remove-item="removeItem" />
   <Modal :isModalOpen="isModalOpen" :cart="cart" @start-new-order="emptyCart" />
 </template>

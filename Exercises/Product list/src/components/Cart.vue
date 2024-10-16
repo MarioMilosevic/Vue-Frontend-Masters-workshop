@@ -7,11 +7,17 @@ export default {
     FilledCart
   },
   props: ["cart"],
+  emits:['remove-item'],
   computed: {
     totalCapacity() {
       return this.cart.reduce((total, dessert) => total + dessert.capacity, 0);
     },
   },
+  methods: {
+    onRemoveItem(dessert) {
+      this.$emit('remove-item', dessert)
+    }
+  }
 };
 </script>
 
@@ -19,7 +25,7 @@ export default {
   <div class="wrapper">
     <h1>Your Cart ({{ totalCapacity }})</h1>
     <EmptyCart v-if="totalCapacity === 0"/>
-    <FilledCart v-else :cart="cart"/>
+    <FilledCart v-else :cart="cart" @remove-item="onRemoveItem"/>
   </div>
 </template>
 
