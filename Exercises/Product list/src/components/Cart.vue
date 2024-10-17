@@ -1,9 +1,7 @@
 <script>
-import EmptyCart from './EmptyCart.vue';
 import FilledCart from './FilledCart.vue';
 export default {
   components: {
-    EmptyCart,
     FilledCart
   },
   props: ["cart"],
@@ -27,7 +25,7 @@ export default {
 <template>
   <div class="wrapper">
     <h1>Your Cart ({{ totalCapacity }})</h1>
-    <EmptyCart v-if="totalCapacity === 0"/>
+  <span v-if="totalCapacity === 0">Your added items will appear here</span>
     <FilledCart v-else :cart="cart" @remove-item="onRemoveItem" @handle-modal="onHandleModal"/>
   </div>
 </template>

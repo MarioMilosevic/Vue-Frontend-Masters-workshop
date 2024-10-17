@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <div class="image-container">
+  <li class="image-container">
     <img
       :src="dessert.image"
       :alt="dessert.image"
@@ -30,7 +30,7 @@ export default {
       @increment-item="$emit('incrementItem', dessert)"
       @decrement-item="$emit('decrementItem', dessert)"
     />
-  </div>
+  </li>
   <div class="dessert-info">
     <h3>{{ dessert.name }}</h3>
     <h2>{{ dessert.description }}</h2>

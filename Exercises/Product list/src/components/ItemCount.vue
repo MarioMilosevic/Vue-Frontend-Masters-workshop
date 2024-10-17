@@ -13,11 +13,11 @@ export default {
 </script>
 
 <template>
-  <div class="wrapper interaction-button">
+  <button class="wrapper interaction-button">
     <v-icon name="co-minus" class="icon" @click="$emit('decrement-item')" />
     <h2>{{ dessert.capacity }}</h2>
     <v-icon name="co-plus" class="icon" @click="$emit('increment-item')" />
-  </div>
+  </button>
 </template>
 
 <style scoped>

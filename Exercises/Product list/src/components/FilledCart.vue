@@ -1,6 +1,5 @@
 <script>
 import CartItem from "./CartItem.vue";
-import Modal from "./Modal.vue";
 export default {
   data() {
     return {
