@@ -1,15 +1,13 @@
 <template>
-  <Demo2 />
+  <Methods />
 </template>
 
 
 <script>
-import Data from "./components/Data.vue";
-import Demo2 from "./components/Demo2.vue";
+import Methods from './components/Methods.vue';
 export default {
   components: {
-    Data,
-    Demo2
+    Methods
   },
 };
 </script>
