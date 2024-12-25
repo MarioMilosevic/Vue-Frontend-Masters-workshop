@@ -1,23 +1,17 @@
 <template>
-   <h1>Mario</h1>
+  <Demo2 />
 </template>
-<script lang='ts'>
+
+
+<script>
+import Data from "./components/Data.vue";
+import Demo2 from "./components/Demo2.vue";
 export default {
-  components: {},
-  props: {},
-  data() {
-    return {};
-  },
-  computed: {
-    // 
-  },
-  mounted() {
-    // 
-  },
-  methods: {
-    // 
+  components: {
+    Data,
+    Demo2
   },
 };
 </script>
-<style>
-</style>
+
+<style lang="scss" scoped></style>
