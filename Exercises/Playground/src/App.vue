@@ -1,33 +1,23 @@
-<script>
-import Card from "./components/Card.vue";
-import NameList from "./components/NameList.vue";
+<template>
+   <h1>Mario</h1>
+</template>
+<script lang='ts'>
 export default {
-  name: "App",
-  components: {
-    NameList,
-  },
+  components: {},
+  props: {},
   data() {
-    return {
-      name: "",
-    };
+    return {};
+  },
+  computed: {
+    // 
+  },
+  mounted() {
+    // 
+  },
+  methods: {
+    // 
   },
 };
 </script>
-
-<template>
-  <NameList>
-    <template v-slot:default="slotProps">
-      {{ slotProps.firstName }} {{ slotProps.lastName }}
-    </template>
-  </NameList>
-  <NameList>
-    <template v-slot:default="slotProps">
-      {{ slotProps.lastName }} {{ slotProps.firstName }}
-    </template>
-  </NameList>
-  <NameList>
-    <template v-slot:default="slotProps"> {{ slotProps.firstName }} </template>
-  </NameList>
-</template>
-
-<style scoped></style>
+<style>
+</style>
