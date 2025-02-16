@@ -1,44 +1,50 @@
 <template>
-  <!-- <div>
-    <router-link :to="{path:'/user', query:{param1:'test1'}}">Home</router-link>
-  </div> -->
   <div class="buttons">
-    <button @click="startInterval">-</button>
+    <HoldButton
+      @click-event="decrement"
+      @mouse-down-event="startInterval(decrement)"
+      @mouse-up-event="stopInterval"
+      @mouse-leave-event="stopInterval"
+      >-</HoldButton
+    >
     <h2>{{ count }}</h2>
-    <button @click="startInterval" @mousedown="mouseDown" @mouseup="stopInterval">+</button>
+    <HoldButton
+      @click-event="increment"
+      @mouse-down-event="startInterval(increment)"
+      @mouse-up-event="stopInterval"
+      @mouse-leave-event="stopInterval"
+      >+</HoldButton
+    >
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref } from "vue";
+import HoldButton from "./components/HoldButton.vue";
 
-const count = ref(0)
-let intervalId = null
-const timeoutId = null
+const count = ref(0);
+let intervalId = null;
+const timeoutId = null;
 
 const increment = () => {
-  count.value++
-}
+  console.log("increment");
+  count.value++;
+};
 
-const startInterval = () => {
+const decrement = () => {
+  count.value--;
+};
+
+const startInterval = (cb) => {
   if (!intervalId) {
-    intervalId = setInterval(increment, 1000)
+    intervalId = setInterval(cb, 1000);
   }
-}
+};
 
 const stopInterval = () => {
-  clearInterval(intervalId)
-  intervalId = null
-}
-
-const mouseDown = () => {
-  if (!timeoutId) {
-    setTimeout(() => {
-      startInterval()
-    }, 500)
-  }
-  console.log("mis dole")
-}
+  clearInterval(intervalId);
+  intervalId = null;
+};
 </script>
 
 <style scoped>
