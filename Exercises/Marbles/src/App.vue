@@ -24,24 +24,13 @@ import HoldButton from "./components/HoldButton.vue";
 
 const count = ref(0);
 let intervalId = null;
-const timeoutId = null;
 
 const increment = () => {
-  console.log("increment");
   count.value++;
 };
 
-
-
-
 const decrement = () => {
   count.value--;
-};
-
-const startInterval = (cb) => {
-  if (!intervalId) {
-    intervalId = setInterval(cb, 1000);
-  }
 };
 
 const stopInterval = () => {

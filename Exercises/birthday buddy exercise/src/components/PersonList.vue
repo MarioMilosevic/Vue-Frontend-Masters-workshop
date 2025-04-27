@@ -1,10 +1,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+
+interface Person {
+fullName:string, image:string, age:number
+}
 
 export default defineComponent({
   props: {
     list: {
-      type: Array,
+      type: Array as PropType<Person[]>,
       required: true
     }
   },
